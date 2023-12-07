@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.list{
+  margin: 30px;
+  width: 90%;
+  height: auto;
+}
+
+
+.table, th,td {
+  border: 2px solid #bbb;
+  text-align: center;
+  vertical-align: middle;
+}
+
+
+.table th{
+height: 80px;
+background-color: #e3dede;
+}
+
+.table td {
+height: 120px;
+}
+
+.clickBox{
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+}
