@@ -36,7 +36,7 @@ font-size: 1.6rem;
   width: 200px;
   height: 35px;
   background-color: #ddf9fe;
-  margin-bottom: 10px;
+ 
   border-radius: 3px;
 }
 #password{
@@ -44,30 +44,32 @@ font-size: 1.6rem;
   height: 35px;
   background-color: #ddf9fe;
   border-radius: 3px;
-  margin-bottom: 10px;
+  
 }
-.login {
+#loginBtn {
   width: 200px;
   height: 35px;
   background-color: rgb(17, 193, 70);
  border-radius: 6px;
+ border: 1px rgb(17, 193, 70) solid;
 
  margin: 0 auto;
 
 }
 
-.login p {
+input[type="submit"]{ 
   font-size: 1.2rem;
-  line-height:  2;
+  display: block;
+  text-decoration: none;
+  color: #fff;
 
   
 }
 
-.login p a{
-  display: block;
-  text-decoration: none;
-  color: #fff;
- 
-
-
+#message1,#message2{
+  height: 30px;
+  color: red;
+  font-size: 12px;
+  line-height: 2.5;
 }
+

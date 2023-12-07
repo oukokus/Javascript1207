@@ -13,14 +13,18 @@
     <body>
         <main class="main">
             <!--ログイン機能-->
-        <div class="loginScreen">
-            <h1>ログイン画面</h1>
-            <input id="text" type="text" name="text"  placeholder="ID" >
-            <input id="password" type="password" name="pw"placeholder="Password" >
-            <div class="login">
-            <p><a href="list.html">ログイン</a></p>
+            <div class="loginScreen">
+                <h1>ログイン画面</h1>
+                <form action = "list.html" method="get" onsubmit="return check()">
+                    <input id="text" type="text" name="text" placeholder="ID">
+                    <div id="message1"></div>
+                    <input id="password" type="password" name="pw" placeholder="Password">
+                    <div id="message2"></div>
+                    <input type="submit" value="ログイン" id="loginBtn">
+                </form>
             </div>
-        </div>
-    </main>
+            </div>
+        </main>
+        <script src="login.js"></script>
     </body>
 </html>
