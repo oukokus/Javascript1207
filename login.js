@@ -34,7 +34,6 @@ function check() {
     getMessage2.innerHTML = "Passwordが未入力です";
     trueFalse = false;
   }
-
   return trueFalse;
 }
 
@@ -146,6 +145,7 @@ function buttonClick() {
   }
   return trueFalse2;
 }
+
 //誕生日入力後、年齢を出力
 birthday.addEventListener("input", function () {
   let getBirthday = document.getElementById("birthday").value;
@@ -158,16 +158,13 @@ birthday.addEventListener("input", function () {
 });
 
 //新しい情報を追加する
-
 let getRegisterBtn = document.getElementById("registerBtn");
 getRegisterBtn.addEventListener("click", function () {
   let list = document.getElementsByClassName("listMessage");
-
   if (buttonClick(false)) {
     let getTable = document.getElementById("table");
     let newRow = getTable.insertRow(-1);
     let tr = document.createElement("tr");
-    getTable.appendChild(tr);
     let td1 = document.createElement("td");
     let td2 = document.createElement("td");
     let td3 = document.createElement("td");
@@ -199,10 +196,11 @@ getRegisterBtn.addEventListener("click", function () {
     let dateString = now.toLocaleDateString("ja-JP", options);
     let nows = new Date(company.value);
     let dateStringCompany = nows.toLocaleDateString("ja-JP", options);
-    //
+    //チェックボックスの複製
     let getCheckbox = document.getElementById("checkBox");
     let cloned = getCheckbox.cloneNode(false);
     td1.appendChild(cloned);
+    td2.innerHTML = getTable.rows.length - 1;
     td3.innerHTML = employeeName.value;
     td4.innerHTML = getRuby.value;
     td5.innerHTML = dateString;
@@ -211,8 +209,5 @@ getRegisterBtn.addEventListener("click", function () {
     td8.innerHTML = address.value;
     td9.innerHTML = tel.value;
     td10.innerHTML = department.value;
-
-
-   
   }
 });

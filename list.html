@@ -31,7 +31,7 @@
                     </tr>
                     <tr>
                         <td><input type="checkbox" id="checkBox"></td>
-                        <td>11111</td>
+                        <td>1</td>
                         <td>田中一郎</td>
                         <td>たなかいちろう</td>
                         <td>1993年1月1日</td>
@@ -43,7 +43,7 @@
                     </tr>
                     <tr>
                         <td><input type="checkbox"></td>
-                        <td>22222</td>
+                        <td>2</td>
                         <td>田中二郎</td>
                         <td>たなかじろう</td>
                         <td>1992年1月1日</td>
@@ -53,9 +53,9 @@
                         <td>08011112222</td>
                         <td>総務</td>
                     </tr>
-                    <tr id="d">
+                    <tr>
                         <td><input type="checkbox"></td>
-                        <td>33333</td>
+                        <td>3</td>
                         <td>田中三郎</td>
                         <td>たなかさぶろう</td>
                         <td>1991年1月1日</td>
@@ -65,41 +65,40 @@
                         <td>08011113333</td>
                         <td>事務 </td>
                     </tr>
-                    <div id="trTd"></div>
-                    </div>
-                </table>
-                <div class="newData">
-                    <p class="newRegi">社員新規登録</p>
-                    <div class="form">
-                        <form method="get" class="formData" onsubmit="return check2()">
-                            <p>社員名</p>
-                            <input id="employeeName" type="text" name="employeeName" class="boxColor" placeholder="社員名" >
-                            <div id="listMessage1" class="listMessage"></div>
-                            <p>ふりがな</p>
-                            <input id="ruby" type="text" name="ruby" class="boxColor" placeholder="ふりがな">
-                            <div id="listMessage2" class="listMessage"></div>
-                            <p>生年月日</p>
-                            <input id="birthday" type="date" min="1900-01-01" max="2100-12-31" name="birthday" class="boxColor" required >
-                            <div id="listMessage3" class="listMessage"></div>
-                            <p>年齢</p>
-                            <input id="age" type="number" name="age" class="boxColor" placeholder="年齢">
-                            <div id="listMessage4" class="listMessage"></div>
-                            <p>入社日</p>
-                            <input id="company" type="date"min="1900-01-01" max="2100-12-31" name="company" class="boxColor" required>
-                            <div id="listMessage5" class="listMessage"></div>
-                            <p>住所</p>
-                            <textarea id="address" type="text" name="address" class="boxColor" placeholder="住所"></textarea>
-                            <div id="listMessage6" class="listMessage"></div>
-                            <p>電話番号(半角数字で入力してください。ハイフン“−”は不要です)</p>
-                            <input id="tel" type="tel" name="tel" class="boxColor" placeholder="電話番号">
-                            <div id="listMessage7" class="listMessage"></div>
-                            <p>所属部署</p>
-                            <input id="department" type="text" name="department" class="boxColor" placeholder="所属部署">
-                            <div id="listMessage8" class="listMessage"></div>
-                            <p><input type="button" onclick="buttonClick()" value="登録する" id="registerBtn"   ></p>
-                        </form>
-                    </div>
+            </div>
+            </table>
+            <div class="newData">
+                <p class="newRegi">社員新規登録</p>
+                <div class="form">
+                    <form method="get" class="formData" onsubmit="return check2()">
+                        <p>社員名</p>
+                        <input id="employeeName" type="text" name="employeeName" class="boxColor" placeholder="社員名">
+                        <div id="listMessage1" class="listMessage"></div>
+                        <p>ふりがな</p>
+                        <input id="ruby" type="text" name="ruby" class="boxColor" placeholder="ふりがな">
+                        <div id="listMessage2" class="listMessage"></div>
+                        <p>生年月日</p>
+                        <input id="birthday" type="date" min="1900-01-01" max="2100-12-31" name="birthday" class="boxColor" required>
+                        <div id="listMessage3" class="listMessage"></div>
+                        <p>年齢</p>
+                        <input id="age" type="number" name="age" class="boxColor" placeholder="年齢">
+                        <div id="listMessage4" class="listMessage"></div>
+                        <p>入社日</p>
+                        <input id="company" type="date" min="1900-01-01" max="2100-12-31" name="company" class="boxColor" required>
+                        <div id="listMessage5" class="listMessage"></div>
+                        <p>住所</p>
+                        <textarea id="address" type="text" name="address" class="boxColor" placeholder="住所"></textarea>
+                        <div id="listMessage6" class="listMessage"></div>
+                        <p>電話番号(半角数字で入力してください。ハイフン“−”は不要です)</p>
+                        <input id="tel" type="tel" name="tel" class="boxColor" placeholder="電話番号">
+                        <div id="listMessage7" class="listMessage"></div>
+                        <p>所属部署</p>
+                        <input id="department" type="text" name="department" class="boxColor" placeholder="所属部署">
+                        <div id="listMessage8" class="listMessage"></div>
+                        <p><input type="button" onclick="buttonClick()" value="登録する" id="registerBtn"   ></p>
+                    </form>
                 </div>
+            </div>
             </div>
         </main>
         <script src="login.js"></script>
