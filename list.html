@@ -11,58 +11,96 @@
         <link rel="stylesheet" href="css/list.css">
     </head>
     <body>
-        <div class="list">
-            <!--一覧画面-->
-            <table class="table">
-                <tr>
-                    <th><div class="clickBox"></div></th>
-                    <th>IDnumber</th>
-                    <th>社員名</th>
-                    <th>ふりがな</th>
-                    <th>生年月日</th>
-                    <th>年齢</th>
-                    <th>入社日</th>
-                    <th>住所</th>
-                    <th>電話番号</th>
-                    <th>所属部署</th>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>11111</td>
-                    <td>田中一郎</td>
-                    <td>たなかいちろう</td>
-                    <td>1993年1月1日</td>
-                    <td>30</td>
-                    <td>2020年4月1日</td>
-                    <td>東京都新宿区新宿1-1-1</td>
-                    <td>080-1111-1111</td>
-                    <td>営業</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>22222</td>
-                    <td>田中二郎</td>
-                    <td>たなかじろう</td>
-                    <td>1992年1月1日</td>
-                    <td>31</td>
-                    <td>2021年4月1日</td>
-                    <td>東京都新宿区西新宿1-1-1</td>
-                    <td>080-1111-2222</td>
-                    <td>総務</td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>33333</td>
-                    <td>田中三郎</td>
-                    <td>たなかさぶろう</td>
-                    <td>1991年1月1日</td>
-                    <td>32</td>
-                    <td>2022年4月1日</td>
-                    <td>東京都新宿区東新宿1-1-1</td>
-                    <td>080-1111-3333</td>
-                    <td>事務 </td>
-                </tr>
+        <main>
+            <div class="list">
+                <!--一覧画面-->
+                <table id="table">
+                    <tr>
+                        <th>
+                            <div class="clickBox"></div>
+                        </th>
+                        <th>IDnumber</th>
+                        <th>社員名</th>
+                        <th>ふりがな</th>
+                        <th>生年月日</th>
+                        <th>年齢</th>
+                        <th>入社日</th>
+                        <th>住所</th>
+                        <th>電話番号</th>
+                        <th>所属部署</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" id="checkBox"></td>
+                        <td>1</td>
+                        <td>田中一郎</td>
+                        <td>たなかいちろう</td>
+                        <td>1993年1月1日</td>
+                        <td>30</td>
+                        <td>2020年4月1日</td>
+                        <td>東京都新宿区新宿1-1-1</td>
+                        <td>08011111111</td>
+                        <td>営業</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>2</td>
+                        <td>田中二郎</td>
+                        <td>たなかじろう</td>
+                        <td>1992年1月1日</td>
+                        <td>31</td>
+                        <td>2021年4月1日</td>
+                        <td>東京都新宿区西新宿1-1-1</td>
+                        <td>08011112222</td>
+                        <td>総務</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>3</td>
+                        <td>田中三郎</td>
+                        <td>たなかさぶろう</td>
+                        <td>1991年1月1日</td>
+                        <td>32</td>
+                        <td>2022年4月1日</td>
+                        <td>東京都新宿区東新宿1-1-1</td>
+                        <td>08011113333</td>
+                        <td>事務 </td>
+                    </tr>
+            </div>
             </table>
-        </div>
+            <div class="newData">
+                <p class="newRegi">社員新規登録</p>
+                <div class="form">
+                    <form method="get" class="formData" onsubmit="return check2()">
+                        <p>社員名</p>
+                        <input id="employeeName" type="text" name="employeeName" class="boxColor" placeholder="社員名">
+                        <div id="listMessage1" class="listMessage"></div>
+                        <p>ふりがな</p>
+                        <input id="ruby" type="text" name="ruby" class="boxColor" placeholder="ふりがな">
+                        <div id="listMessage2" class="listMessage"></div>
+                        <p>生年月日</p>
+                        <input id="birthday" type="date" min="1900-01-01" max="2100-12-31" name="birthday" class="boxColor" required>
+                        <div id="listMessage3" class="listMessage"></div>
+                        <p>年齢</p>
+                        <input id="age" type="number" name="age" class="boxColor" placeholder="年齢">
+                        <div id="listMessage4" class="listMessage"></div>
+                        <p>入社日</p>
+                        <input id="company" type="date" min="1900-01-01" max="2100-12-31" name="company" class="boxColor" required>
+                        <div id="listMessage5" class="listMessage"></div>
+                        <p>住所</p>
+                        <textarea id="address" type="text" name="address" class="boxColor" placeholder="住所"></textarea>
+                        <div id="listMessage6" class="listMessage"></div>
+                        <p>電話番号(半角数字で入力してください。ハイフン“−”は不要です)</p>
+                        <input id="tel" type="tel" name="tel" class="boxColor" placeholder="電話番号">
+                        <div id="listMessage7" class="listMessage"></div>
+                        <p>所属部署</p>
+                        <input id="department" type="text" name="department" class="boxColor" placeholder="所属部署">
+                        <div id="listMessage8" class="listMessage"></div>
+                        <p><input type="button" onclick="buttonClick()" value="登録する" id="registerBtn"   ></p>
+                    </form>
+                </div>
+            </div>
+            </div>
+        </main>
+        <script src="login.js"></script>
     </body>
 </html>

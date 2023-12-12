@@ -3,73 +3,66 @@
 -------------------------*/
 
 @charset "UTF-8";
-body{
+body {
   font-size: 62.5%;
 }
 
-.main{
-width: 100%;
-height: auto;
-display: flex;
-justify-content: center;
-align-items: center;
-
+.main {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loginScreen {
   width: 300px;
   height: 300px;
   margin: 10px;
-  border: 1px #535353  solid;
+  border: 1px #535353 solid;
   text-align: center;
-
 }
 
 .loginScreen h1 {
-padding-top: 30px;
-padding-bottom: 40px;
-font-size: 1.6rem;
-
+  padding-top: 30px;
+  padding-bottom: 40px;
+  font-size: 1.6rem;
 }
 
 #text {
   width: 200px;
   height: 35px;
   background-color: #ddf9fe;
- 
+
   border-radius: 3px;
 }
-#password{
+#password {
   width: 200px;
   height: 35px;
   background-color: #ddf9fe;
   border-radius: 3px;
-  
 }
 #loginBtn {
   width: 200px;
   height: 35px;
   background-color: rgb(17, 193, 70);
- border-radius: 6px;
- border: 1px rgb(17, 193, 70) solid;
+  border-radius: 6px;
+  border: 1px rgb(17, 193, 70) solid;
 
- margin: 0 auto;
-
+  margin: 0 auto;
 }
 
-input[type="submit"]{ 
+input[type="submit"] {
   font-size: 1.2rem;
   display: block;
   text-decoration: none;
   color: #fff;
-
-  
 }
 
-#message1,#message2{
+#message1,
+#message2 {
   height: 30px;
   color: red;
   font-size: 12px;
   line-height: 2.5;
 }
-

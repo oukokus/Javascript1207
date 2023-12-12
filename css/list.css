@@ -2,32 +2,118 @@
 一覧画面
 -------------------------*/
 @charset "UTF-8";
+body {
+  font-size: 62.5%;
+}
 
-.list{
+.list {
   margin: 30px;
-  width: 90%;
+  width: 1280px;
   height: auto;
 }
 
-
-.table, th,td {
+#table,
+th,
+td {
   border: 2px solid #bbb;
   text-align: center;
   vertical-align: middle;
+  font-size: 1rem;
+  
 }
 
-
-.table th{
-height: 80px;
-background-color: #e3dede;
+#table th {
+  height: 80px;
+  background-color: #e3dede;
+  padding: 10px;
 }
 
-.table td {
-height: 120px;
+#table td {
+  height: 80px;
+  width: auto;
+  padding: 10px;;
 }
 
-.clickBox{
+.clickBox {
   width: 20px;
   height: 20px;
   background-color: #fff;
 }
+
+/*-------------------------
+新規登録追加
+-------------------------*/
+.newData {
+  font-size: 1rem;
+  width: 500px;
+  background-color: #eee;
+  margin-top: 30px;
+  padding: 30px;
+}
+
+.newRegi {
+  font-size: 1.6rem;
+  display: inline-block;
+  background-color: #ccc;
+  padding: 5px;
+  border-radius: 5%;
+}
+
+.formData p {
+  margin-bottom: 0;
+}
+
+.listMessage {
+  height: 30px;
+  color: red;
+  font-size: 12px;
+  line-height: 2.5;
+  margin-left: 10px;
+}
+
+.boxColor {
+  border: 2px #333 solid;
+  margin-top: 3px;
+  margin-left: 10px;
+}
+
+#age {
+  width: 125px;
+}
+
+#address {
+  width: 400px;
+  height: 90px;
+}
+
+#registerBtn {
+  width: 150px;
+  height: 35px;
+  background-color: orange;
+  border-radius: 6px;
+  border: 1px orange solid;
+  margin-top: 20px;
+}
+
+.test {
+  width: 1000px;
+  height: 400px;
+}
+
+
+
+/*-------------------------
+4 一覧に追加
+
+
+
+⑤生年月日と入社日を一覧に追加する際に形式を〇〇年〇〇月〇〇日形式で表示させるようにして下さい。
+当日分日付表示---2023年12月8日
+let date = new Date();
+let year = date.getFullYear().toString().padStart(4, '0');
+let month = (date.getMonth() + 1).toString().padStart(2, '0');
+let day = date.getDate().toString().padStart(2, '0');
+let dateText = year + '年' + month + '月' + day + '日';
+console.log(dateText);
+
+-------------------------*/
