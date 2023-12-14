@@ -12,13 +12,21 @@
     </head>
     <body>
         <main>
+            <form id="selectForm">
+                <select name="selectList"  id ="selectValue"  >
+                    <option value="IDTop">ID</option>
+                    <option value="nameTop">名前昇順</option>
+                    <option value="nameDown">名前降順</option>
+                    <option value="ageTop">年齢の昇順</option> 
+                    <option value="ageDown">年齢の降順</option> 
+                  </select>
+                  <p><input type="button" onclick="sortclick()" id="sort" value="ソート"></p>
+            </form>
             <div class="list">
                 <!--一覧画面-->
                 <table id="table">
                     <tr>
-                        <th>
-                            <div class="clickBox"></div>
-                        </th>
+                        <th><input type="checkbox" id="checkBox"></th>
                         <th>IDnumber</th>
                         <th>社員名</th>
                         <th>ふりがな</th>
@@ -29,44 +37,8 @@
                         <th>電話番号</th>
                         <th>所属部署</th>
                     </tr>
-                    <tr>
-                        <td><input type="checkbox" id="checkBox"></td>
-                        <td>1</td>
-                        <td>田中一郎</td>
-                        <td>たなかいちろう</td>
-                        <td>1993年1月1日</td>
-                        <td>30</td>
-                        <td>2020年4月1日</td>
-                        <td>東京都新宿区新宿1-1-1</td>
-                        <td>08011111111</td>
-                        <td>営業</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>2</td>
-                        <td>田中二郎</td>
-                        <td>たなかじろう</td>
-                        <td>1992年1月1日</td>
-                        <td>31</td>
-                        <td>2021年4月1日</td>
-                        <td>東京都新宿区西新宿1-1-1</td>
-                        <td>08011112222</td>
-                        <td>総務</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>3</td>
-                        <td>田中三郎</td>
-                        <td>たなかさぶろう</td>
-                        <td>1991年1月1日</td>
-                        <td>32</td>
-                        <td>2022年4月1日</td>
-                        <td>東京都新宿区東新宿1-1-1</td>
-                        <td>08011113333</td>
-                        <td>事務 </td>
-                    </tr>
+                </table>
             </div>
-            </table>
             <div class="newData">
                 <p class="newRegi">社員新規登録</p>
                 <div class="form">

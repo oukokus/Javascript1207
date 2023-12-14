@@ -199,6 +199,7 @@ getRegisterBtn.addEventListener("click", function () {
     //チェックボックスの複製
     let getCheckbox = document.getElementById("checkBox");
     let cloned = getCheckbox.cloneNode(false);
+
     td1.appendChild(cloned);
     td2.innerHTML = getTable.rows.length - 1;
     td3.innerHTML = employeeName.value;
@@ -211,3 +212,135 @@ getRegisterBtn.addEventListener("click", function () {
     td10.innerHTML = department.value;
   }
 });
+
+//ソート機能
+
+async function callApi() {
+  const res = await fetch("db.json");
+  const users = await res.json();
+  return users;
+}
+
+async function api() {
+  let call = await callApi();
+
+  let getSelectValue = document.getElementById("selectValue");
+  let valueSelect = getSelectValue.value;
+  console.log(valueSelect);
+
+  if (valueSelect == "nameTop") {
+    //名前の昇順
+    call.sort(function (a, b) {
+      if (a.furigana > b.furigana) {
+        return 1;
+      } else if (a.furigana < b.furigana) {
+        return -1;
+      } else {
+        return 0;
+      }
+      return a.localeCompare(b, "ja");
+    });
+  } else if (valueSelect == "nameDown") {
+    //名前の降順
+
+    call.sort(function (a, b) {
+      if (a.furigana < b.furigana) {
+        return 1;
+      } else if (a.furigana > b.furigana) {
+        return -1;
+      } else {
+        return 0;
+      }
+      return a.localeCompare(b, "ja");
+    });
+  } else if (valueSelect == "ageTop") {
+    //年齢の昇順
+    call.sort(function (a, b) {
+      if (a.age > b.age) {
+        return 1;
+      } else if (a.age < b.age) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  } else if (valueSelect == "ageDown") {
+    //年齢の降順
+    call.sort(function (a, b) {
+      if (a.age < b.age) {
+        return 1;
+      } else if (a.age > b.age) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  }
+
+  let array = document.querySelector("#table");
+
+  call.forEach((el) => {
+    let getCheckbox = document.getElementById("checkBox");
+    let cloned = getCheckbox.cloneNode(false);
+    let clone = cloned.value;
+    //console.log(cloned)
+
+    let getTable = document.getElementById("table");
+    let tableRows = getTable.rows.length;
+    let nemployee_name = el.employee_name;
+    let furigana = el.furigana;
+    let date_of_birth = el.date_of_birth;
+    let ageRows = el.age;
+    let hire_date = el.hire_date;
+    let address = el.address;
+    let phone_number = el.phone_number;
+    let department = el.department;
+
+    let code =
+      "<tr id='tr'>" +
+      "<td>" +
+      clone +
+      "<td>" +
+      tableRows +
+      "</td>" +
+      "<td>" +
+      nemployee_name +
+      "</td>" +
+      "<td>" +
+      furigana +
+      "</td>" +
+      "<td>" +
+      date_of_birth +
+      "</td>" +
+      "<td>" +
+      ageRows +
+      "</td>" +
+      "<td>" +
+      hire_date +
+      "</td>" +
+      "<td>" +
+      address +
+      "</td>" +
+      "<td>" +
+      phone_number +
+      "</td>" +
+      "<td>" +
+      department +
+      "</td>" +
+      "</td>" +
+      "</tr>";
+    array.insertAdjacentHTML("beforeend", code);
+  });
+}
+
+api();
+
+function sortclick() {
+  api();
+  let lists = document.querySelector("#tr");
+  let items = document.querySelectorAll("td");
+
+  items.forEach(function (element) {
+    lists.removeChild(element);
+  });
+}
