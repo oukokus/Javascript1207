@@ -199,7 +199,6 @@ getRegisterBtn.addEventListener("click", function () {
     //チェックボックスの複製
     let getCheckbox = document.getElementById("checkBox");
     let cloned = getCheckbox.cloneNode(false);
-
     td1.appendChild(cloned);
     td2.innerHTML = getTable.rows.length - 1;
     td3.innerHTML = employeeName.value;
@@ -225,8 +224,6 @@ async function api() {
   let call = await callApi();
   let getSelectValue = document.getElementById("selectValue");
   let valueSelect = getSelectValue.value;
-  console.log(valueSelect);
-
   if (valueSelect == "nameTop") {
     //名前の昇順
     call.sort(function (a, b) {
@@ -239,9 +236,8 @@ async function api() {
       }
       return a.localeCompare(b, "ja");
     });
+      //名前の降順
   } else if (valueSelect == "nameDown") {
-    //名前の降順
-
     call.sort(function (a, b) {
       if (a.furigana < b.furigana) {
         return 1;
@@ -252,8 +248,8 @@ async function api() {
       }
       return a.localeCompare(b, "ja");
     });
+      //年齢の昇順
   } else if (valueSelect == "ageTop") {
-    //年齢の昇順
     call.sort(function (a, b) {
       if (a.age > b.age) {
         return 1;
@@ -263,8 +259,8 @@ async function api() {
         return 0;
       }
     });
+      //年齢の降順
   } else if (valueSelect == "ageDown") {
-    //年齢の降順
     call.sort(function (a, b) {
       if (a.age < b.age) {
         return 1;
@@ -276,8 +272,6 @@ async function api() {
     });
   }
 
-  let array = document.querySelector("#table");
-  let getTbody = document.getElementById("tbody");
   call.forEach((el) => {
     let getTable = document.getElementById("table");
     let tableRows = getTable.rows.length;
@@ -289,7 +283,6 @@ async function api() {
     let address = el.address;
     let phone_number = el.phone_number;
     let department = el.department;
-
     let code =
       "<tr id='tr'>" +
       "<td>" +
@@ -326,7 +319,6 @@ async function api() {
     tbody.insertAdjacentHTML("beforeend", code);
   });
 }
-
 api();
 
 function sortclick() {
