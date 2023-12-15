@@ -211,3 +211,119 @@ getRegisterBtn.addEventListener("click", function () {
     td10.innerHTML = department.value;
   }
 });
+
+//ソート機能
+
+async function callApi() {
+  const res = await fetch("db.json");
+  const users = await res.json();
+  return users;
+}
+
+async function api() {
+  let call = await callApi();
+  let getSelectValue = document.getElementById("selectValue");
+  let valueSelect = getSelectValue.value;
+  if (valueSelect == "nameTop") {
+    //名前の昇順
+    call.sort(function (a, b) {
+      if (a.furigana > b.furigana) {
+        return 1;
+      } else if (a.furigana < b.furigana) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+      //名前の降順
+  } else if (valueSelect == "nameDown") {
+    call.sort(function (a, b) {
+      if (a.furigana < b.furigana) {
+        return 1;
+      } else if (a.furigana > b.furigana) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+      //年齢の昇順
+  } else if (valueSelect == "ageTop") {
+    call.sort(function (a, b) {
+      if (a.age > b.age) {
+        return 1;
+      } else if (a.age < b.age) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+      //年齢の降順
+  } else if (valueSelect == "ageDown") {
+    call.sort(function (a, b) {
+      if (a.age < b.age) {
+        return 1;
+      } else if (a.age > b.age) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+  }
+
+  call.forEach((el) => {
+    let getTable = document.getElementById("table");
+    let tableRows = getTable.rows.length;
+    let nemployee_name = el.employee_name;
+    let furigana = el.furigana;
+    let date_of_birth = el.date_of_birth;
+    let ageRows = el.age;
+    let hire_date = el.hire_date;
+    let address = el.address;
+    let phone_number = el.phone_number;
+    let department = el.department;
+    let code =
+      "<tr id='tr'>" +
+      "<td>" +
+      "<input type='checkbox' class='checkClass'>" +
+      "<td>" +
+      tableRows +
+      "</td>" +
+      "<td>" +
+      nemployee_name +
+      "</td>" +
+      "<td>" +
+      furigana +
+      "</td>" +
+      "<td>" +
+      date_of_birth +
+      "</td>" +
+      "<td>" +
+      ageRows +
+      "</td>" +
+      "<td>" +
+      hire_date +
+      "</td>" +
+      "<td>" +
+      address +
+      "</td>" +
+      "<td>" +
+      phone_number +
+      "</td>" +
+      "<td>" +
+      department +
+      "</td>" +
+      "</td>" +
+      "</tr>";
+    tbody.insertAdjacentHTML("beforeend", code);
+  });
+}
+api();
+
+function sortclick() {
+  api();
+  let lists = document.querySelector("#tbody");
+  let items = document.querySelectorAll("#tr");
+  items.forEach(function (elements) {
+    lists.removeChild(elements);
+  });
+}

@@ -102,18 +102,12 @@ td {
 
 
 
-/*-------------------------
-4 一覧に追加
+#selectForm{
+margin: 30px;
 
+}
 
-
-⑤生年月日と入社日を一覧に追加する際に形式を〇〇年〇〇月〇〇日形式で表示させるようにして下さい。
-当日分日付表示---2023年12月8日
-let date = new Date();
-let year = date.getFullYear().toString().padStart(4, '0');
-let month = (date.getMonth() + 1).toString().padStart(2, '0');
-let day = date.getDate().toString().padStart(2, '0');
-let dateText = year + '年' + month + '月' + day + '日';
-console.log(dateText);
-
--------------------------*/
+#selectValue {
+  padding: 6px 4px;
+  margin-bottom: 3px;
+}
