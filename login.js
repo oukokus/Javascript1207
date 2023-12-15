@@ -223,7 +223,6 @@ async function callApi() {
 
 async function api() {
   let call = await callApi();
-
   let getSelectValue = document.getElementById("selectValue");
   let valueSelect = getSelectValue.value;
   console.log(valueSelect);
@@ -278,13 +277,8 @@ async function api() {
   }
 
   let array = document.querySelector("#table");
-
+  let getTbody = document.getElementById("tbody");
   call.forEach((el) => {
-    let getCheckbox = document.getElementById("checkBox");
-    let cloned = getCheckbox.cloneNode(false);
-    let clone = cloned.value;
-    //console.log(cloned)
-
     let getTable = document.getElementById("table");
     let tableRows = getTable.rows.length;
     let nemployee_name = el.employee_name;
@@ -299,7 +293,7 @@ async function api() {
     let code =
       "<tr id='tr'>" +
       "<td>" +
-      clone +
+      "<input type='checkbox' class='checkClass'>" +
       "<td>" +
       tableRows +
       "</td>" +
@@ -329,7 +323,7 @@ async function api() {
       "</td>" +
       "</td>" +
       "</tr>";
-    array.insertAdjacentHTML("beforeend", code);
+    tbody.insertAdjacentHTML("beforeend", code);
   });
 }
 
@@ -337,10 +331,9 @@ api();
 
 function sortclick() {
   api();
-  let lists = document.querySelector("#tr");
-  let items = document.querySelectorAll("td");
-
-  items.forEach(function (element) {
-    lists.removeChild(element);
+  let lists = document.querySelector("#tbody");
+  let items = document.querySelectorAll("#tr");
+  items.forEach(function (elements) {
+    lists.removeChild(elements);
   });
 }
