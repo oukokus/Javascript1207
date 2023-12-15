@@ -234,7 +234,6 @@ async function api() {
       } else {
         return 0;
       }
-      return a.localeCompare(b, "ja");
     });
       //名前の降順
   } else if (valueSelect == "nameDown") {
@@ -246,7 +245,6 @@ async function api() {
       } else {
         return 0;
       }
-      return a.localeCompare(b, "ja");
     });
       //年齢の昇順
   } else if (valueSelect == "ageTop") {

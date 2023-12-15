@@ -13,33 +13,33 @@
     <body>
         <main>
             <form id="selectForm">
-                <select name="selectList"  id ="selectValue"  >
+                <select name="selectList" id="selectValue">
                     <option value="IDTop">ID</option>
                     <option value="nameTop">名前昇順</option>
                     <option value="nameDown">名前降順</option>
-                    <option value="ageTop">年齢の昇順</option> 
-                    <option value="ageDown">年齢の降順</option> 
-                  </select>
-                  <p><input type="button" onclick="sortclick()" id="sort" value="ソート"></p>
+                    <option value="ageTop">年齢の昇順</option>
+                    <option value="ageDown">年齢の降順</option>
+                </select>
+                <p><input type="button" onclick="sortclick()" id="sort" value="ソート"></p>
             </form>
             <div class="list">
                 <!--一覧画面-->
                 <table id="table">
-                  <thead>
-                    <tr>
-                        <th><input type="checkbox" id="checkBox"></th>
-                        <th>IDnumber</th>
-                        <th>社員名</th>
-                        <th>ふりがな</th>
-                        <th>生年月日</th>
-                        <th>年齢</th>
-                        <th>入社日</th>
-                        <th>住所</th>
-                        <th>電話番号</th>
-                        <th>所属部署</th>
-                    </tr>
-                  </thead>
-                  <tbody id="tbody"></tbody>
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="checkBox"></th>
+                            <th>IDnumber</th>
+                            <th>社員名</th>
+                            <th>ふりがな</th>
+                            <th>生年月日</th>
+                            <th>年齢</th>
+                            <th>入社日</th>
+                            <th>住所</th>
+                            <th>電話番号</th>
+                            <th>所属部署</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody"></tbody>
                 </table>
             </div>
             <div class="newData">
