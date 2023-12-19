@@ -107,7 +107,12 @@ margin: 30px;
 
 }
 
-#selectValue {
-  padding: 6px 4px;
-  margin-bottom: 3px;
+#selectValue,#filterButton {
+  padding: 5px 4px;
+  margin: 3px 0;
+}
+
+#filter
+{
+  margin-left: 30px;
 }

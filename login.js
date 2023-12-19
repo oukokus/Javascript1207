@@ -235,7 +235,7 @@ async function api() {
         return 0;
       }
     });
-      //名前の降順
+    //名前の降順
   } else if (valueSelect == "nameDown") {
     call.sort(function (a, b) {
       if (a.furigana < b.furigana) {
@@ -246,7 +246,7 @@ async function api() {
         return 0;
       }
     });
-      //年齢の昇順
+    //年齢の昇順
   } else if (valueSelect == "ageTop") {
     call.sort(function (a, b) {
       if (a.age > b.age) {
@@ -257,7 +257,7 @@ async function api() {
         return 0;
       }
     });
-      //年齢の降順
+    //年齢の降順
   } else if (valueSelect == "ageDown") {
     call.sort(function (a, b) {
       if (a.age < b.age) {
@@ -288,7 +288,7 @@ async function api() {
       "<td>" +
       tableRows +
       "</td>" +
-      "<td>" +
+      "<td class='nName'>" +
       nemployee_name +
       "</td>" +
       "<td>" +
@@ -327,3 +327,22 @@ function sortclick() {
     lists.removeChild(elements);
   });
 }
+
+//絞り込み機能
+document.getElementById("filterButton").addEventListener("click", function () {
+  let getFilterText = document.getElementById("filterText");
+  let getTbody = document.getElementById("tbody");
+  let rows = document.querySelectorAll("tr");
+  let keyword = getFilterText.value.trim();
+  for (i = 0; i < getTbody.rows.length; i++) {
+    let emName = getTbody.rows[i].cells[2].textContent;
+    if (emName.includes(keyword)) {
+      rows[i + 1].style.display = "";
+    } else {
+      rows[i + 1].style.display = "none";
+    }
+  }
+});
+
+
+
