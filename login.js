@@ -337,9 +337,10 @@ document.getElementById("filterButton").addEventListener("click", function () {
   for (i = 0; i < getTbody.rows.length; i++) {
     let emName = getTbody.rows[i].cells[2].textContent;
     if (emName.includes(keyword)) {
-      rows[i+1].style.display = "";
+      rows[i + 1].style.display = "";
     } else {
-      rows[i+1].style.display = "none";
+      rows[i + 1].style.display = "none";
     }
   }
 });
+
