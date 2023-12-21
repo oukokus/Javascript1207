@@ -282,9 +282,10 @@ async function api() {
     let phone_number = el.phone_number;
     let department = el.department;
     let code =
-      "<tr id='tr'>" +
-      "<td>" +
+      "<tr class='trClass'>" +
+      "<td class = 'ittext'>" +
       "<input type='checkbox' class='checkClass'>" +
+      "</td>" +
       "<td>" +
       tableRows +
       "</td>" +
@@ -312,6 +313,8 @@ async function api() {
       "<td>" +
       department +
       "</td>" +
+      "<td class = 'ittext'>" +
+      "<input type='button' onclick='editclick()' class='editButton'value='編集'>" +
       "</td>" +
       "</tr>";
     tbody.insertAdjacentHTML("beforeend", code);
@@ -322,7 +325,7 @@ api();
 function sortclick() {
   api();
   let lists = document.querySelector("#tbody");
-  let items = document.querySelectorAll("#tr");
+  let items = document.querySelectorAll(".trClass");
   items.forEach(function (elements) {
     lists.removeChild(elements);
   });
@@ -344,5 +347,41 @@ document.getElementById("filterButton").addEventListener("click", function () {
   }
 });
 
+//②ボタンを押すとその行が全てテキストボックスに変わる。その際元々記述
+//されてた内容がvalueとなる。
+//③編集完了後編集ボタンをもう一度押すと元の状態に戻り、変更した内容が
+//反映される。
 
+//編集機能
+let firstClick = true;
+function editclick() {
+  let getTbody = document.getElementById("tbody");
+  let cells = document.querySelectorAll("tr");
+  let getEditButton = document.querySelectorAll("editButton");
+  let dataCells = Array.from(cells).slice(1);
 
+  dataCells.forEach(function (data) {});
+  let tdElements = document.querySelectorAll("td:not(.ittext)");
+
+  for (let index = 0; index < 9; index++) {
+    let rowLength = dataCells[index + 1];
+    let aaa = rowLength.children;
+
+    let element = tdElements[index];
+
+    let input1 = document.createElement("input");
+    input1.setAttribute("type", "text");
+    input1.setAttribute("class", "inputText");
+    element.textContent = input1.setAttribute("value", element.textContent);
+    element.appendChild(input1);
+  }
+  if (firstClick) {
+    let value1 = document.getElementsByClassName("inputText");
+
+    element = value1;
+
+    firstClick = false;
+  } else {
+    cells.remove(elements);
+  }
+}
