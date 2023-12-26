@@ -356,15 +356,15 @@ document.getElementById("filterButton").addEventListener("click", function () {
 //③編集完了後編集ボタンをもう一度押すと元の状態に戻り、変更した内容が
 //反映される。
 
-//編集機能edit 0 
+//編集機能edit 0
 
-let judgement= document.getElementById('tbody');
+let judgement = document.getElementById("tbody");
 
-judgement.setAttribute('class', 'boxs');
+judgement.setAttribute("class", "boxs");
 
 let firstClick = true;
 function editclick(ind) {
-  console.log(ind)
+  console.log(ind);
   let getTrclass = document.querySelectorAll(".trClass");
 
   let getIdname = document.querySelectorAll(".idName");
@@ -373,8 +373,8 @@ function editclick(ind) {
   let cells = document.querySelectorAll("tr");
 
   let dataCells = Array.from(cells).slice(1);
-  console.log(getTbody.rows[0])
- 
+  console.log(getTbody.rows[0]);
+
   console.log(getIdname.item(0));
   console.log(cells.item(1));
   console.log();
@@ -387,25 +387,22 @@ function editclick(ind) {
   let getTdclass = document.getElementsByClassName("tdclass");
   console.log(getTdclass);
   let gtdclass = document.querySelectorAll(".tdclass");
-  console.log(gtdclass)
+  console.log(gtdclass);
   // getTbody.addEventListener("click", function (event) {
   let gec = number1.closest(".trClass");
   console.log(gec); //行の情報(1列目)
-  console.log(event.target.id)
-
+  console.log(event.target.id);
 
   if (event.target.id == ind) {
-    if (judgement.classList.contains('boxs')) {
-      judgement.classList.remove('boxs')
+    if (judgement.classList.contains("boxs")) {
+      judgement.classList.remove("boxs");
       let acc = gec.value;
-      console.log(acc)
-   
-       
+      console.log(acc);
+
       for (let c = 0; c < 9; c++) {
-        
         let element1 = tdElements.item(c);
         console.log(element1);
-      
+
         let createInput = document.createElement("input");
         createInput.setAttribute("type", "text");
         createInput.setAttribute("class", "inputText");
@@ -414,29 +411,26 @@ function editclick(ind) {
         element1.appendChild(createInput);
         console.log(createInput.value);
       }
-    }
-    else {
-      judgement.classList.add('boxs');
+    } else {
+      judgement.classList.add("boxs");
 
       for (let c = 0; c < 9; c++) {
-        
         let element2 = tdElements.item(c);
-        let ipt = document.getElementsByClassName("inputText")
-        element2.removeAttribute("inputText")
+        let ipt = document.getElementsByClassName("inputText");
+        element2.removeAttribute("inputText");
         console.log(element2);
         //let idnumberlength = cells.item(1).textContent;
         //console.log(idnumberlength);
         //let getInputText = document.querySelectorAll("inputText");
-      
+
         // let itValue = getInputText.
- 
+
         //getInputText.classList.remove('inputText');
         //  let create = document.createElement("td");
         //  create.setAttribute("class", "tdclass");
         //  getTrclass.appendChild(create);
       }
     }
-    
   }
 }
 //  getTbody.addEventListener("click", function (event) {
@@ -464,4 +458,4 @@ function editclick(ind) {
 //      }
 //    }
 //  });
- //}
+//}
