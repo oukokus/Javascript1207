@@ -283,36 +283,74 @@ async function api() {
     let department = el.department;
     let ind = index + 1;
     let code =
-      "<tr class='trClass'>" +
+      "<tr class='trClass' id='trId" +
+      ind +
+      "'>" +
       "<td class = 'ittext'>" +
       "<input type='checkbox' class='checkClass'>" +
       "</td>" +
-      "<td class='idName'  'name1'>" +
+      "<td class='tdclass" +
+      ind +
+      " idName name1' ' id='tdId" +
+      ind +
+      "'>" +
       //"<td class='ime'> "+ind +"" +
       tableRows +
       "</td>" +
-      "<td class='nName' 'tdclass'>" +
+      "<td class='tdclass" +
+      ind +
+      "  nName'  id='tdId" +
+      ind +
+      "'>" +
       nemployee_name +
       "</td>" +
-      "<td class='tdclass'>" +
+      "<td class='tdclass" +
+      ind +
+      "' id='tdId" +
+      ind +
+      "'>" +
       furigana +
       "</td>" +
-      "<td class='tdclass'>" +
+      "<td class='tdclass" +
+      ind +
+      "' id='tdId" +
+      ind +
+      "'>" +
       date_of_birth +
       "</td>" +
-      "<td class='tdclass'>" +
+      "<td class='tdclass" +
+      ind +
+      "' id='tdId" +
+      ind +
+      "'>" +
       ageRows +
       "</td>" +
-      "<td class='tdclass'>" +
+      "<td class='tdclass" +
+      ind +
+      "' id='tdId" +
+      ind +
+      "'>" +
       hire_date +
       "</td>" +
-      "<td class='tdclass'>" +
+      "<td class='tdclass" +
+      ind +
+      "' id='tdId" +
+      ind +
+      "'>" +
       address +
       "</td>" +
-      "<td class='tdclass'>" +
+      "<td class='tdclass" +
+      ind +
+      "' id='tdId" +
+      ind +
+      "'>" +
       phone_number +
       "</td>" +
-      "<td class='tdclass'>" +
+      "<td class='tdclass" +
+      ind +
+      "' id='tdId" +
+      ind +
+      "'>" +
       department +
       "</td>" +
       "<td class = 'ittext class='textClass'>" +
@@ -366,7 +404,7 @@ let firstClick = true;
 function editclick(ind) {
   console.log(ind);
   let getTrclass = document.querySelectorAll(".trClass");
-
+  console.log(getTrclass[0]);
   let getIdname = document.querySelectorAll(".idName");
   let geButton = document.querySelectorAll(".editButton");
   let getTbody = document.getElementById("tbody");
@@ -375,62 +413,153 @@ function editclick(ind) {
   let dataCells = Array.from(cells).slice(1);
   console.log(getTbody.rows[0]);
 
-  console.log(getIdname.item(0));
+  console.log(getIdname.item(1));
   console.log(cells.item(1));
   console.log();
   let tdElements = document.querySelectorAll("td:not(.ittext)");
   console.log(tdElements);
 
-  console.log(number1); //<input type="button" onclick="editclick()" id="number1" class="editButton" value="編集">
-  console.log(getIdname.item(0).innerHTML); //ボタンの数字
+  //console.log(number1); //<input type="button" onclick="editclick()" id="number1" class="editButton" value="編集">
+  console.log(getIdname.item(0).innerHTML);
+  let abutton = getIdname.item(0).innerHTML; //ボタンの数字
   console.log("number" + getIdname.item(1).innerHTML);
   let getTdclass = document.getElementsByClassName("tdclass");
   console.log(getTdclass);
   let gtdclass = document.querySelectorAll(".tdclass");
   console.log(gtdclass);
   // getTbody.addEventListener("click", function (event) {
-  let gec = number1.closest(".trClass");
-  console.log(gec); //行の情報(1列目)
+  // let gec = number1.closest(".trClass");
+  // console.log(gec); //行の情報(1列目)
   console.log(event.target.id);
+  console.log(abutton);
 
-  if (event.target.id == ind) {
-    if (judgement.classList.contains("boxs")) {
-      judgement.classList.remove("boxs");
-      let acc = gec.value;
-      console.log(acc);
+  //let ss = sas.textContent;
+  //console.log(ss);
+  let trid1 = document.getElementById("trId1");
+  //if (event.target.id == ind) {
+  event.target.id == ind;
+  let cc = event.target.id;
+  console.log(cc);
 
-      for (let c = 0; c < 9; c++) {
-        let element1 = tdElements.item(c);
-        console.log(element1);
+  console.log(number1);
+  if (judgement.classList.contains("boxs")) {
+    judgement.classList.remove("boxs");
+    let cc = document.getElementsByClassName("idName");
 
-        let createInput = document.createElement("input");
-        createInput.setAttribute("type", "text");
-        createInput.setAttribute("class", "inputText");
-        let sa = createInput.setAttribute("value", element1.textContent);
-        element1.textContent = sa;
-        element1.appendChild(createInput);
-        console.log(createInput.value);
-      }
-    } else {
-      judgement.classList.add("boxs");
+    let codes =
+      "<tr class='trClass' id='db'>" +
+      "<td class = 'ittext'>" +
+      "<input type='checkbox'  class='checkClass'>" +
+      "</td>" +
+      "<td class='idName'  'name1'>" +
+      "<input type='text' class='inputText'  value = ''>" +
+      "</td>" +
+      "<td class='nName' 'tdclass'>" +
+      "<input type='text' class='inputText'  value = ''>" +
+      "</td>" +
+      "<td class='tdclass'>" +
+      "<input type='text' class='inputText'  value = ''>" +
+      "</td>" +
+      "<td class='tdclass'>" +
+      "<input type='text' class='inputText'  value = ''>" +
+      "</td>" +
+      "<td class='tdclass'>" +
+      "<input type='text' class='inputText'  value = ''>" +
+      "</td>" +
+      "<td class='tdclass'>" +
+      "<input type='text' class='inputText'  value = ''>" +
+      "</td>" +
+      "<td class='tdclass'>" +
+      "<input type='text' class='inputText'  value = ''>" +
+      "</td>" +
+      "<td class='tdclass'>" +
+      "<input type='text' class='inputText'  value = ''>" +
+      "</td>" +
+      "<td class='tdclass'>" +
+      "<input type='text' class='inputText'  >" +
+      "</td>" +
+      "<td class = 'ittext class='textClass'>" +
+      "<input type='button' onclick='editclick(this.id)' id='number" +
+      ind +
+      "'  class='editButton' value='編集'>" +
+      "</td>" +
+      "</tr>";
 
-      for (let c = 0; c < 9; c++) {
-        let element2 = tdElements.item(c);
-        let ipt = document.getElementsByClassName("inputText");
-        element2.removeAttribute("inputText");
-        console.log(element2);
-        //let idnumberlength = cells.item(1).textContent;
-        //console.log(idnumberlength);
-        //let getInputText = document.querySelectorAll("inputText");
-
-        // let itValue = getInputText.
-
-        //getInputText.classList.remove('inputText');
-        //  let create = document.createElement("td");
-        //  create.setAttribute("class", "tdclass");
-        //  getTrclass.appendChild(create);
-      }
+    let gtrClass = document.getElementsByClassName("trClass");
+    console.log(gtrClass[0]);
+    let tdclass1 = document.getElementsByClassName("tdclass1");
+    let tdclass2 = document.getElementsByClassName("tdclass2");
+    console.log(tdclass1[0]);
+    console.log(trId1.textContent);
+    console.log(gtrClass);
+    getTrclass[0].insertAdjacentHTML("afterend", codes);
+  
+    //trid1.insertAdjacentHTML("afterend", codes);
+    let ginputText = document.querySelectorAll(".inputText");
+    let numbernumber1 = document.getElementById("numbernumber1");
+    console.log(tdclass1.item(1).textContent);
+    for (let f = 0; f < tdclass1.length; f++) {
+      ginputText.item(f).value = tdclass1.item(f).textContent;
     }
+    trid1.style.display = "none";
+    console.log(ginputText.item(1).value);
+    //let git = ginputText.setAttribute("value", trId1.textContent)
+    //trId1.textContent = git;
+    //trId1.appendChild(ginputText)
+
+    //let sa = createInput.setAttribute("value", element1.textContent);
+    //    element1.textContent = sa;
+    //   element1.appendChild(createInput);
+    //    console.log(createInput.value);
+
+    //      let cccc = getTbody.rows[1]
+    //      console.log(cccc)
+    //      getTdclass.insertAdjacentHTML(`
+    //      <input type='text' class='inputText'>${ind.value};
+    //      `)
+
+    //<td class="tdclass">
+    //   <input type="text" class="inputText" value="たなか たろう">
+    //</td >
+
+    //    for (let c = 0; c < 9; c++) {
+    //      let element1 =  tdElements.item(c);
+    //      let createInput = document.createElement("input");
+    //      createInput.setAttribute("type", "text");
+    //      createInput.setAttribute("class", "inputText");
+    //      let sa = createInput.setAttribute("value", element1.textContent);
+    //      element1.textContent = sa;
+    //      element1.appendChild(createInput);
+    //      console.log(createInput.value);
+    //
+    //    }
+  } else {
+    judgement.classList.add("boxs");
+    let ginputText = document.querySelectorAll(".inputText");
+    let tdclass1 = document.querySelectorAll(".tdclass1");
+    for (let f = 0; f < tdclass1.length; f++) {
+      tdclass1.item(f).textContent = ginputText.item(f).value;
+    }
+    trid1.style.display = "";
+    let db = document.getElementById("db");
+    console.log(db);
+    db.style.display = "none";
+    //for (let c = 0; c < 9; c++) {
+    //  let element2 = tdElements.item(c);
+    //  let ipt = document.getElementsByClassName("inputText");
+    //  element2.removeAttribute("inputText");
+    //  console.log(element2);
+
+    //let idnumberlength = cells.item(1).textContent;
+    //console.log(idnumberlength);
+    //let getInputText = document.querySelectorAll("inputText");
+
+    // let itValue = getInputText.
+
+    //getInputText.classList.remove('inputText');
+    //  let create = document.createElement("td");
+    //  create.setAttribute("class", "tdclass");
+    //  getTrclass.appendChild(create);
   }
 }
 //  getTbody.addEventListener("click", function (event) {
