@@ -291,66 +291,48 @@ async function api() {
       "</td>" +
       "<td class='tdclass" +
       ind +
-      " idName name1' ' id='tdId" +
-      ind +
-      "'>" +
+      " idName name1 name0' '>" +
       //"<td class='ime'> "+ind +"" +
       tableRows +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      "  nName'  id='tdId" +
-      ind +
-      "'>" +
+      "  nName name0  '>" +
       nemployee_name +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      "' id='tdId" +
-      ind +
-      "'>" +
+      " name0'>" +
       furigana +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      "' id='tdId" +
-      ind +
-      "'>" +
+      " name0'>" +
       date_of_birth +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      "' id='tdId" +
-      ind +
-      "'>" +
+      " name0'>" +
       ageRows +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      "' id='tdId" +
-      ind +
-      "'>" +
+      " name0'>" +
       hire_date +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      "' id='tdId" +
-      ind +
-      "'>" +
+      " name0'>" +
       address +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      "' id='tdId" +
-      ind +
-      "'>" +
+      " name0'>" +
       phone_number +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      "' id='tdId" +
-      ind +
-      "'>" +
+      " name0'>" +
       department +
       "</td>" +
       "<td class = 'ittext class='textClass'>" +
@@ -479,60 +461,34 @@ function editclick(ind) {
       "<input type='text' class='inputText'  >" +
       "</td>" +
       "<td class = 'ittext class='textClass'>" +
-      "<input type='button' onclick='editclick(this.id)' id='number" +
+      "<input type='button' onclick='editclick(this.id)' id=" +
       ind +
-      "'  class='editButton' value='編集'>" +
+      "  class='editButton' value='編集'>" +
       "</td>" +
       "</tr>";
 
     let gtrClass = document.getElementsByClassName("trClass");
-    console.log(gtrClass[0]);
+    console.log(gtrClass.length);
+
     let tdclass1 = document.getElementsByClassName("tdclass1");
     let tdclass2 = document.getElementsByClassName("tdclass2");
+    let name00 = document.getElementsByClassName("name0");
     console.log(tdclass1[0]);
     console.log(trId1.textContent);
     console.log(gtrClass);
+    console.log(gtrClass);
+
     getTrclass[0].insertAdjacentHTML("afterend", codes);
-  
+
     //trid1.insertAdjacentHTML("afterend", codes);
     let ginputText = document.querySelectorAll(".inputText");
-    let numbernumber1 = document.getElementById("numbernumber1");
     console.log(tdclass1.item(1).textContent);
+
     for (let f = 0; f < tdclass1.length; f++) {
       ginputText.item(f).value = tdclass1.item(f).textContent;
     }
     trid1.style.display = "none";
     console.log(ginputText.item(1).value);
-    //let git = ginputText.setAttribute("value", trId1.textContent)
-    //trId1.textContent = git;
-    //trId1.appendChild(ginputText)
-
-    //let sa = createInput.setAttribute("value", element1.textContent);
-    //    element1.textContent = sa;
-    //   element1.appendChild(createInput);
-    //    console.log(createInput.value);
-
-    //      let cccc = getTbody.rows[1]
-    //      console.log(cccc)
-    //      getTdclass.insertAdjacentHTML(`
-    //      <input type='text' class='inputText'>${ind.value};
-    //      `)
-
-    //<td class="tdclass">
-    //   <input type="text" class="inputText" value="たなか たろう">
-    //</td >
-
-    //    for (let c = 0; c < 9; c++) {
-    //      let element1 =  tdElements.item(c);
-    //      let createInput = document.createElement("input");
-    //      createInput.setAttribute("type", "text");
-    //      createInput.setAttribute("class", "inputText");
-    //      let sa = createInput.setAttribute("value", element1.textContent);
-    //      element1.textContent = sa;
-    //      element1.appendChild(createInput);
-    //      console.log(createInput.value);
-    //
-    //    }
   } else {
     judgement.classList.add("boxs");
     let ginputText = document.querySelectorAll(".inputText");
@@ -544,24 +500,57 @@ function editclick(ind) {
     let db = document.getElementById("db");
     console.log(db);
     db.style.display = "none";
-    //for (let c = 0; c < 9; c++) {
-    //  let element2 = tdElements.item(c);
-    //  let ipt = document.getElementsByClassName("inputText");
-    //  element2.removeAttribute("inputText");
-    //  console.log(element2);
-
-    //let idnumberlength = cells.item(1).textContent;
-    //console.log(idnumberlength);
-    //let getInputText = document.querySelectorAll("inputText");
-
-    // let itValue = getInputText.
-
-    //getInputText.classList.remove('inputText');
-    //  let create = document.createElement("td");
-    //  create.setAttribute("class", "tdclass");
-    //  getTrclass.appendChild(create);
   }
 }
+
+//let git = ginputText.setAttribute("value", trId1.textContent)
+//trId1.textContent = git;
+//trId1.appendChild(ginputText)
+
+//let sa = createInput.setAttribute("value", element1.textContent);
+//    element1.textContent = sa;
+//   element1.appendChild(createInput);
+//    console.log(createInput.value);
+
+//      let cccc = getTbody.rows[1]
+//      console.log(cccc)
+//      getTdclass.insertAdjacentHTML(`
+//      <input type='text' class='inputText'>${ind.value};
+//      `)
+
+//<td class="tdclass">
+//   <input type="text" class="inputText" value="たなか たろう">
+//</td >
+
+//    for (let c = 0; c < 9; c++) {
+//      let element1 =  tdElements.item(c);
+//      let createInput = document.createElement("input");
+//      createInput.setAttribute("type", "text");
+//      createInput.setAttribute("class", "inputText");
+//      let sa = createInput.setAttribute("value", element1.textContent);
+//      element1.textContent = sa;
+//      element1.appendChild(createInput);
+//      console.log(createInput.value);
+//
+//    }
+
+//for (let c = 0; c < 9; c++) {
+//  let element2 = tdElements.item(c);
+//  let ipt = document.getElementsByClassName("inputText");
+//  element2.removeAttribute("inputText");
+//  console.log(element2);
+
+//let idnumberlength = cells.item(1).textContent;
+//console.log(idnumberlength);
+//let getInputText = document.querySelectorAll("inputText");
+
+// let itValue = getInputText.
+
+//getInputText.classList.remove('inputText');
+//  let create = document.createElement("td");
+//  create.setAttribute("class", "tdclass");
+//  getTrclass.appendChild(create);
+
 //  getTbody.addEventListener("click", function (event) {
 //    console.log("currentTarget :");
 //    console.log(event.currentTarget);
