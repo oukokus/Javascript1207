@@ -270,7 +270,7 @@ async function api() {
     });
   }
 
-  call.forEach((el, index) => {
+  call.forEach(function(el, index)  {
     let getTable = document.getElementById("table");
     let tableRows = getTable.rows.length;
     let nemployee_name = el.employee_name;
@@ -286,66 +286,138 @@ async function api() {
       "<tr class='trClass' id='trId" +
       ind +
       "'>" +
-      "<td class = 'ittext'>" +
+      "<td>" +
       "<input type='checkbox' class='checkClass'>" +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      " idName name1 name0' '>" +
+      "'>" +
       //"<td class='ime'> "+ind +"" +
       tableRows +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      "  nName name0  '>" +
+      "'>" +
       nemployee_name +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      " name0'>" +
+      "'>" +
       furigana +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      " name0'>" +
+      "'>" +
       date_of_birth +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      " name0'>" +
+      "'>" +
       ageRows +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      " name0'>" +
+      "'>" +
       hire_date +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      " name0'>" +
+      "'>" +
       address +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      " name0'>" +
+      "'>" +
       phone_number +
       "</td>" +
       "<td class='tdclass" +
       ind +
-      " name0'>" +
+      "'>" +
       department +
       "</td>" +
-      "<td class = 'ittext class='textClass'>" +
-      "<input type='button' onclick='editclick(this.id)' id='number" +
+      "<td>" +
+      "<input type='button' id='number" +
       ind +
-      "'  class='editButton' value='編集'>" +
+      "'class='editButton' value='編集'>" +
       "</td>" +
       "</tr>";
-    tbody.insertAdjacentHTML("beforeend", code);
+   tbody.insertAdjacentHTML("beforeend", code);
   });
-}
-api();
 
+  //編集機能
+let codes =
+"<tr class='trClass' id='codes'>" +
+"<td>" +
+"<input type='checkbox'  class='checkClass inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'  >" +
+"</td>" +
+"<td>" +
+"<input type='button' id='secondNumber" +
+"'  class='editButton2' value='決定'>" +
+"</td>" +
+"</tr>";
+let getTrClass = document.querySelectorAll(".trClass");
+let getEditButton = document.getElementsByClassName("editButton");
+let judgement = document.getElementById("tbody");
+judgement.setAttribute("class", "box");
+  for (let k = 0; k < getEditButton.length; k++) {
+    getEditButton[k].addEventListener("click", function () {
+      if (judgement.classList.contains("box")) {
+        judgement.classList.remove("box");
+        getTrClass[k].insertAdjacentHTML("afterend", codes);
+        let getInputText = document.querySelectorAll(".inputText");
+        let trClassNodeList = getTrClass[k].childNodes;
+        let getCodes = document.getElementById("codes")
+          for (let f = 0; f < trClassNodeList.length-1; f++) {
+            getInputText.item(f).value = trClassNodeList.item(f).textContent;
+          }
+      getTrClass[k].style.display = "none";
+      trClassNodeList.item(10).style.display = "";
+      } 
+      let secondNumber = document.getElementById("secondNumber")
+      secondNumber.addEventListener("click", function () {
+        judgement.classList.add("box");
+        getTrClass[k].style.display = "";
+        let getInputText = document.querySelectorAll(".inputText");
+        let trClassNodeList = getTrClass[k].childNodes;
+        let getCodes = document.getElementById("codes");
+        getCodes.remove();
+        for (let f = 1; f < trClassNodeList.length; f++) {
+          trClassNodeList.item(f).textContent = getInputText.item(f).value;
+        }
+      })
+    })
+  }
+}
+
+
+api();
 function sortclick() {
   api();
   let lists = document.querySelector("#tbody");
@@ -370,210 +442,3 @@ document.getElementById("filterButton").addEventListener("click", function () {
     }
   }
 });
-
-//②ボタンを押すとその行が全てテキストボックスに変わる。その際元々記述
-//されてた内容がvalueとなる。
-//③編集完了後編集ボタンをもう一度押すと元の状態に戻り、変更した内容が
-//反映される。
-
-//編集機能edit 0
-
-let judgement = document.getElementById("tbody");
-
-judgement.setAttribute("class", "boxs");
-
-let firstClick = true;
-function editclick(ind) {
-  console.log(ind);
-  let getTrclass = document.querySelectorAll(".trClass");
-  console.log(getTrclass[0]);
-  let getIdname = document.querySelectorAll(".idName");
-  let geButton = document.querySelectorAll(".editButton");
-  let getTbody = document.getElementById("tbody");
-  let cells = document.querySelectorAll("tr");
-
-  let dataCells = Array.from(cells).slice(1);
-  console.log(getTbody.rows[0]);
-
-  console.log(getIdname.item(1));
-  console.log(cells.item(1));
-  console.log();
-  let tdElements = document.querySelectorAll("td:not(.ittext)");
-  console.log(tdElements);
-
-  //console.log(number1); //<input type="button" onclick="editclick()" id="number1" class="editButton" value="編集">
-  console.log(getIdname.item(0).innerHTML);
-  let abutton = getIdname.item(0).innerHTML; //ボタンの数字
-  console.log("number" + getIdname.item(1).innerHTML);
-  let getTdclass = document.getElementsByClassName("tdclass");
-  console.log(getTdclass);
-  let gtdclass = document.querySelectorAll(".tdclass");
-  console.log(gtdclass);
-  // getTbody.addEventListener("click", function (event) {
-  // let gec = number1.closest(".trClass");
-  // console.log(gec); //行の情報(1列目)
-  console.log(event.target.id);
-  console.log(abutton);
-
-  //let ss = sas.textContent;
-  //console.log(ss);
-  let trid1 = document.getElementById("trId1");
-  //if (event.target.id == ind) {
-  event.target.id == ind;
-  let cc = event.target.id;
-  console.log(cc);
-
-  console.log(number1);
-  if (judgement.classList.contains("boxs")) {
-    judgement.classList.remove("boxs");
-    let cc = document.getElementsByClassName("idName");
-
-    let codes =
-      "<tr class='trClass' id='db'>" +
-      "<td class = 'ittext'>" +
-      "<input type='checkbox'  class='checkClass'>" +
-      "</td>" +
-      "<td class='idName'  'name1'>" +
-      "<input type='text' class='inputText'  value = ''>" +
-      "</td>" +
-      "<td class='nName' 'tdclass'>" +
-      "<input type='text' class='inputText'  value = ''>" +
-      "</td>" +
-      "<td class='tdclass'>" +
-      "<input type='text' class='inputText'  value = ''>" +
-      "</td>" +
-      "<td class='tdclass'>" +
-      "<input type='text' class='inputText'  value = ''>" +
-      "</td>" +
-      "<td class='tdclass'>" +
-      "<input type='text' class='inputText'  value = ''>" +
-      "</td>" +
-      "<td class='tdclass'>" +
-      "<input type='text' class='inputText'  value = ''>" +
-      "</td>" +
-      "<td class='tdclass'>" +
-      "<input type='text' class='inputText'  value = ''>" +
-      "</td>" +
-      "<td class='tdclass'>" +
-      "<input type='text' class='inputText'  value = ''>" +
-      "</td>" +
-      "<td class='tdclass'>" +
-      "<input type='text' class='inputText'  >" +
-      "</td>" +
-      "<td class = 'ittext class='textClass'>" +
-      "<input type='button' onclick='editclick(this.id)' id=" +
-      ind +
-      "  class='editButton' value='編集'>" +
-      "</td>" +
-      "</tr>";
-
-    let gtrClass = document.getElementsByClassName("trClass");
-    console.log(gtrClass.length);
-
-    let tdclass1 = document.getElementsByClassName("tdclass1");
-    let tdclass2 = document.getElementsByClassName("tdclass2");
-    let name00 = document.getElementsByClassName("name0");
-    console.log(tdclass1[0]);
-    console.log(trId1.textContent);
-    console.log(gtrClass);
-    console.log(gtrClass);
-
-    getTrclass[0].insertAdjacentHTML("afterend", codes);
-
-    //trid1.insertAdjacentHTML("afterend", codes);
-    let ginputText = document.querySelectorAll(".inputText");
-    console.log(tdclass1.item(1).textContent);
-
-    for (let f = 0; f < tdclass1.length; f++) {
-      ginputText.item(f).value = tdclass1.item(f).textContent;
-    }
-    trid1.style.display = "none";
-    console.log(ginputText.item(1).value);
-  } else {
-    judgement.classList.add("boxs");
-    let ginputText = document.querySelectorAll(".inputText");
-    let tdclass1 = document.querySelectorAll(".tdclass1");
-    for (let f = 0; f < tdclass1.length; f++) {
-      tdclass1.item(f).textContent = ginputText.item(f).value;
-    }
-    trid1.style.display = "";
-    let db = document.getElementById("db");
-    console.log(db);
-    db.style.display = "none";
-  }
-}
-
-//let git = ginputText.setAttribute("value", trId1.textContent)
-//trId1.textContent = git;
-//trId1.appendChild(ginputText)
-
-//let sa = createInput.setAttribute("value", element1.textContent);
-//    element1.textContent = sa;
-//   element1.appendChild(createInput);
-//    console.log(createInput.value);
-
-//      let cccc = getTbody.rows[1]
-//      console.log(cccc)
-//      getTdclass.insertAdjacentHTML(`
-//      <input type='text' class='inputText'>${ind.value};
-//      `)
-
-//<td class="tdclass">
-//   <input type="text" class="inputText" value="たなか たろう">
-//</td >
-
-//    for (let c = 0; c < 9; c++) {
-//      let element1 =  tdElements.item(c);
-//      let createInput = document.createElement("input");
-//      createInput.setAttribute("type", "text");
-//      createInput.setAttribute("class", "inputText");
-//      let sa = createInput.setAttribute("value", element1.textContent);
-//      element1.textContent = sa;
-//      element1.appendChild(createInput);
-//      console.log(createInput.value);
-//
-//    }
-
-//for (let c = 0; c < 9; c++) {
-//  let element2 = tdElements.item(c);
-//  let ipt = document.getElementsByClassName("inputText");
-//  element2.removeAttribute("inputText");
-//  console.log(element2);
-
-//let idnumberlength = cells.item(1).textContent;
-//console.log(idnumberlength);
-//let getInputText = document.querySelectorAll("inputText");
-
-// let itValue = getInputText.
-
-//getInputText.classList.remove('inputText');
-//  let create = document.createElement("td");
-//  create.setAttribute("class", "tdclass");
-//  getTrclass.appendChild(create);
-
-//  getTbody.addEventListener("click", function (event) {
-//    console.log("currentTarget :");
-//    console.log(event.currentTarget);
-//    console.log("target :");
-//    console.log(event.target);
-//
-//    //   if (number2.id == "number" + getIdname.item(1).innerHTML) {
-//    console.log(getIdname.item(1).innerHTML)
-//    if (event.target == number2) {
-//      for (let c = 9; c < 18; c++) {
-//        let geg = number2.closest(".trClass");
-//        console.log(geg);
-//        let element2 = tdElements[c];
-//        console.log(element2);
-//        let idnumberlength = cells.item(2).textContent;
-//        console.log(idnumberlength);
-//        let input2 = document.createElement("input");
-//        input2.setAttribute("type", "text");
-//        input2.setAttribute("class", "inputText");
-//        let sa2 = input2.setAttribute("value", element2.textContent);
-//        element2.textContent = sa2;
-//        element2.appendChild(input2);
-//      }
-//    }
-//  });
-//}
