@@ -8,7 +8,6 @@ body {
 
 .list {
   margin: 30px;
-  width: 1280px;
   height: auto;
 }
 
@@ -23,7 +22,7 @@ td {
 }
 
 #table th {
-  height: 80px;
+  height: 90px;
   background-color: #e3dede;
   padding: 10px;
 }

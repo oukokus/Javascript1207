@@ -270,7 +270,7 @@ async function api() {
     });
   }
 
-  call.forEach((el) => {
+  call.forEach(function(el, index)  {
     let getTable = document.getElementById("table");
     let tableRows = getTable.rows.length;
     let nemployee_name = el.employee_name;
@@ -281,48 +281,147 @@ async function api() {
     let address = el.address;
     let phone_number = el.phone_number;
     let department = el.department;
+    let ind = index + 1;
     let code =
-      "<tr id='tr'>" +
+      "<tr class='trClass' id='trId" +
+      ind +
+      "'>" +
       "<td>" +
       "<input type='checkbox' class='checkClass'>" +
-      "<td>" +
+      "</td>" +
+      "<td class='tdclass" +
+      ind +
+      "'>" +
+      //"<td class='ime'> "+ind +"" +
       tableRows +
       "</td>" +
-      "<td class='nName'>" +
+      "<td class='tdclass" +
+      ind +
+      "'>" +
       nemployee_name +
       "</td>" +
-      "<td>" +
+      "<td class='tdclass" +
+      ind +
+      "'>" +
       furigana +
       "</td>" +
-      "<td>" +
+      "<td class='tdclass" +
+      ind +
+      "'>" +
       date_of_birth +
       "</td>" +
-      "<td>" +
+      "<td class='tdclass" +
+      ind +
+      "'>" +
       ageRows +
       "</td>" +
-      "<td>" +
+      "<td class='tdclass" +
+      ind +
+      "'>" +
       hire_date +
       "</td>" +
-      "<td>" +
+      "<td class='tdclass" +
+      ind +
+      "'>" +
       address +
       "</td>" +
-      "<td>" +
+      "<td class='tdclass" +
+      ind +
+      "'>" +
       phone_number +
       "</td>" +
-      "<td>" +
+      "<td class='tdclass" +
+      ind +
+      "'>" +
       department +
       "</td>" +
+      "<td>" +
+      "<input type='button' id='number" +
+      ind +
+      "'class='editButton' value='編集'>" +
       "</td>" +
       "</tr>";
-    tbody.insertAdjacentHTML("beforeend", code);
+   tbody.insertAdjacentHTML("beforeend", code);
   });
-}
-api();
 
+  //編集機能
+let codes =
+"<tr class='trClass' id='codes'>" +
+"<td>" +
+"<input type='checkbox'  class='checkClass inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'>" +
+"</td>" +
+"<td class='tdclass'>" +
+"<input type='text' class='inputText'  >" +
+"</td>" +
+"<td>" +
+"<input type='button' id='secondNumber" +
+"'  class='editButton2' value='決定'>" +
+"</td>" +
+"</tr>";
+let getTrClass = document.querySelectorAll(".trClass");
+let getEditButton = document.getElementsByClassName("editButton");
+let judgement = document.getElementById("tbody");
+judgement.setAttribute("class", "box");
+  for (let k = 0; k < getEditButton.length; k++) {
+    getEditButton[k].addEventListener("click", function () {
+      if (judgement.classList.contains("box")) {
+        judgement.classList.remove("box");
+        getTrClass[k].insertAdjacentHTML("afterend", codes);
+        let getInputText = document.querySelectorAll(".inputText");
+        let trClassNodeList = getTrClass[k].childNodes;
+        let getCodes = document.getElementById("codes")
+          for (let f = 0; f < trClassNodeList.length-1; f++) {
+            getInputText.item(f).value = trClassNodeList.item(f).textContent;
+          }
+      getTrClass[k].style.display = "none";
+      trClassNodeList.item(10).style.display = "";
+      } 
+      let secondNumber = document.getElementById("secondNumber")
+      secondNumber.addEventListener("click", function () {
+        judgement.classList.add("box");
+        getTrClass[k].style.display = "";
+        let getInputText = document.querySelectorAll(".inputText");
+        let trClassNodeList = getTrClass[k].childNodes;
+        let getCodes = document.getElementById("codes");
+        getCodes.remove();
+        for (let f = 1; f < trClassNodeList.length; f++) {
+          trClassNodeList.item(f).textContent = getInputText.item(f).value;
+        }
+      })
+    })
+  }
+}
+
+
+api();
 function sortclick() {
   api();
   let lists = document.querySelector("#tbody");
-  let items = document.querySelectorAll("#tr");
+  let items = document.querySelectorAll(".trClass");
   items.forEach(function (elements) {
     lists.removeChild(elements);
   });
@@ -343,6 +442,3 @@ document.getElementById("filterButton").addEventListener("click", function () {
     }
   }
 });
-
-
-
